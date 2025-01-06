@@ -47,3 +47,6 @@ venv.bak/
 # MyPy cache
 .mypy_cache/
 .dmy
+
+#API keys
+keys.txt
