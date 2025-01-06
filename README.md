@@ -56,7 +56,7 @@ python fetch_events.py --query "your_search_query" --days 30
 Fetch events matching the query `service:trms production service check` from the last 15 days:
 
 ```bash
-python fetch_events.py --query "service:trms production service check" --days 15
+python fetch_events.py --query "production service check" --days 15
 ```
 
 ## Output
@@ -107,3 +107,4 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ## Support
 
 For support or questions, please contact `elacson@gmail.com.
+git
