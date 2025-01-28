@@ -8,6 +8,9 @@ from datetime import datetime
 from datadog_api_client import ApiClient, Configuration
 from datadog_api_client.v2.api.events_api import EventsApi
 
+# Set directory path for output file
+output_dir_path = "/output"
+
 # Load DataDog API Keys
 if not load_dotenv():
     raise EnvironmentError("Unable to load .env file. Make sure it exists and contains the required keys.")
@@ -61,11 +64,18 @@ with ApiClient(configuration) as api_client:
             # Convert to DataFrame
             events_df = pd.DataFrame(events_data)
             print(events_df)
+
+            try:
+                os.makedirs(output_dir_path, exist_ok=True)  # `exist_ok=True` prevents errors if the directory already exists
+                print(f"Directory created at: {directory_path}")
+            except OSError as e:
+                print(f"Error: {e}")
             
             # Write to CSV
-            output_file = 'events_output.csv'
+            output_file = 'output/events_output.csv'
             events_df.to_csv(output_file, index=False)
             print(f"Events successfully written to {output_file}.")
+
         else:
             print(f"No events found between {start_time} and {end_time}.")
             
