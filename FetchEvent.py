@@ -9,7 +9,7 @@ from datadog_api_client import ApiClient, Configuration
 from datadog_api_client.v2.api.events_api import EventsApi
 
 # Set directory path for output file
-output_dir_path = "/output"
+output_dir_path = "output"
 
 # Load DataDog API Keys
 if not load_dotenv():
@@ -67,7 +67,7 @@ with ApiClient(configuration) as api_client:
 
             try:
                 os.makedirs(output_dir_path, exist_ok=True)  # `exist_ok=True` prevents errors if the directory already exists
-                print(f"Directory created at: {directory_path}")
+                print(f"Directory created at: {output_dir_path}")
             except OSError as e:
                 print(f"Error: {e}")
             
