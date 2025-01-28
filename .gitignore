@@ -1,0 +1,52 @@
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+*.cover
+.cache
+coverage.xml
+*.coveragerc
+*.py,cover
+.hypothesis/
+
+# Pytest
+.pytest_cache/
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python version specific
+.python-version
+
+# VS Code
+.vscode/
+
+# IDEs
+.idea/
+*.iml
+*.sublime-project
+*.sublime-workspace
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# SQLite databases
+*.sqlite3
+
+# MyPy cache
+.mypy_cache/
+.dmy
+
+#Output files
+*.csv
