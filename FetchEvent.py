@@ -2,6 +2,7 @@ import os
 import json
 from dotenv import load_dotenv
 import pandas as pd
+import argparse
 import time
 import pytz
 from datetime import datetime
@@ -10,6 +11,24 @@ from datadog_api_client.v2.api.events_api import EventsApi
 
 # Set directory path for output file
 output_dir_path = "output"
+
+# Parse command-line arguments
+parser = argparse.ArgumentParser(description="Fetch events from Datadog API.")
+parser.add_argument(
+    "--query",
+    type=str,
+    required=True,
+    help="The filter query for fetching events, e.g., 'service:trms production service check'."
+    )
+parser.add_argument(
+    "--days",
+    type=int,
+    default=30,
+    help="Number of days in the past to fetch events (default: 30)."    
+    )
+
+args = parser.parse_args()
+
 
 # Load DataDog API Keys
 if not load_dotenv():
@@ -30,16 +49,16 @@ configuration.api_key["appKeyAuth"] = DD_APP_KEY
 with ApiClient(configuration) as api_client:
     events_api = EventsApi(api_client)
 
-    # Define time range (last 24 hours)
-    start_time = int(time.time()) - (86400 * 30)  # 30 days ago
+    # Define time range based on user input
+    start_time = int(time.time()) - (86400 * args.days)  # X days ago
     end_time = int(time.time())
     
     try:
-        # Fetch events
+         # Fetch events with query string from user argutment
         events_response = events_api.list_events(
             filter_from=str(start_time),
             filter_to=str(end_time),
-            filter_query="TRMS",
+            filter_query=args.query, 
             page_limit=1000
         )
         
