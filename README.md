@@ -5,7 +5,7 @@ FetchEvent is a command-line application that retrieves and processes event logs
 
 ## Features
 
-- Retrieves event data from Datadog based on a user-defined query.
+- Retrieves event data from Datadog API based on a user-defined query.
 - Supports dynamic time range selection.
 - Outputs data into a structured CSV file for analysis.
 - Automatically adjusts timestamps to a specified timezone.
@@ -21,8 +21,8 @@ FetchEvent is a command-line application that retrieves and processes event logs
 1. Clone this repository or download the script file.
 
    ```bash
-   git clone https://github.com/yourusername/fetchevent.git
-   cd fetchevent
+   git clone https://github.com/yourusername/FetchEvent.git
+   cd FetchEvent
    ```
 
 2. Install the required Python packages:
@@ -48,12 +48,11 @@ python fetch_events.py --query "your_search_query" --days 30
 
 ### Command-Line Arguments
 
-- `--query` (required): The search query to filter events (e.g., `service:mis production service check`).
-- `--days` (optional): The number of days in the past to fetch events. Defaults to `30`.
+--query` (required): The search query to filter events (e.g., `service:mis`).
 
 ### Example
 
-Fetch events matching the query `service:trms production service check` from the last 15 days:
+Fetch events matching the query `service:hrms production service check` from the last 15 days:
 
 ```bash
 python fetch_events.py --query "production service check" --days 15
