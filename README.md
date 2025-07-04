@@ -104,7 +104,16 @@ This project is licensed under the MIT License. See the `LICENSE` file for more 
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-## Support
+## Issues and Feedback
 
-For support or questions, please contact `elacson@gmail.com.
-git
+We value your input! If you encounter any bugs, have questions, or would like to suggest improvements, please open an issue in this repository.
+
+### How to Open an Issue
+
+1. Navigate to the [Issues page](https://github.com/FetchEvent/issues).
+2. Click on **New Issue**.
+3. Provide a clear and detailed description of your question, suggestion, or issue.
+4. Submit the issue.
+
+Thank you for helping us improve this project!
+
