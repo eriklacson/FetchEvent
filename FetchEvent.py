@@ -78,6 +78,11 @@ def process_event_data(events_data):
     for event in events_data:
         attributes = event.attributes.attributes
         event_timestamp = event.attributes.timestamp
+
+        # Ensure tz-aware timestamp
+        if event_timestamp.tzinfo is None:
+            event_timestamp = event_timestamp.replace(tzinfo=pytz.utc)
+
         event_timestamp_local = event_timestamp.astimezone(target_timezone)
 
         processed_events.append({
@@ -89,7 +94,8 @@ def process_event_data(events_data):
             "event_status": attributes.get("status", "Unknown")
         })
 
-    return pd.DataFrame(processed_events)
+    return processed_events
+
 
 def save_to_csv(events_df, output_dir_path="output", output_file="output/events_output.csv"):
     """

@@ -1,6 +1,7 @@
 import pytest
 import os
 import pandas as pd
+import argparse
 from unittest.mock import patch, MagicMock
 from FetchEvent import (
     initialize_config,
@@ -43,10 +44,10 @@ def test_process_event_data():
             )
         )
     ]
-    processed_df = process_event_data(mock_event_data)
-    assert isinstance(processed_df, pd.DataFrame)
-    assert not processed_df.empty
-    assert processed_df.iloc[0]["event_title"] == "Event Title"
+    result = process_event_data(mock_event_data)
+    assert isinstance(result, list)
+    assert len(result) > 0
+    assert result[0]["event_title"] == "Event Title"
 
 def test_save_to_csv(tmp_path):
     test_df = pd.DataFrame({"col1": [1, 2], "col2": [3, 4]})
