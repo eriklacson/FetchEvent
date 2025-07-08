@@ -48,8 +48,7 @@ python fetch_events.py --query "your_search_query" --days 30
 
 ### Command-Line Arguments
 
-- `--query` (required): The search query to filter events (e.g., `service:mis`).
-- `--days` (optional): The number of days in the past to fetch events. Defaults to `30`.
+--query` (required): The search query to filter events (e.g., `service:mis`).
 
 ### Example
 
