@@ -1,7 +1,8 @@
 
 # FetchEvent
 
-FetchEvent is a command-line application that retrieves and processes event logs from Datadog based on customizable search parameters. It allows users to filter, analyze, and export event data for streamlined monitoring and operational insights.
+FetchEvent is a command-line application that retrieves and processes event logs from Datadog based on customizable search parameters. It allows users to filter, analyze, and export event data for streamlined monitoring. This application is particularly useful for DevOps teams and system administrators who need to track events across their infrastructure efficiently.
+
 
 ## Features
 
@@ -94,6 +95,14 @@ pip install -r requirements.txt
 - Add support for multiple timezones.
 - Implement advanced filtering options.
 - Provide additional output formats (e.g., JSON).
+- Implement pagination. Currently limited to 1000 events per request.
+
+## Troubleshooting
+If you encounter issues while running the script, consider the following troubleshooting steps:
+- Ensure that your `.env` file is correctly set up with valid Datadog API and application keys.
+- Check your network connection and ensure that you can reach the Datadog API.
+- If you receive an error related to the query, verify that your search query is correctly formatted and valid according to Datadog's search syntax.
+
 
 ## License
 
