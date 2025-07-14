@@ -1,0 +1,10 @@
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+select = ["E", "F", "B"]      # style & bug rules
+line-length = 100
+ignore = ["E501"]             # long lines handled by Black
+
+[tool.bandit]
+skips = ["B101"]              # adjust to taste
