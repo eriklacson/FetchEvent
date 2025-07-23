@@ -11,15 +11,18 @@ from datetime import datetime
 from datadog_api_client import ApiClient, Configuration
 from datadog_api_client.v2.api.events_api import EventsApi
 
+
 def initialize_config():
     """
     Sets up configurations, API keys, and Datadog API client.
     """
     if not load_dotenv():
-        raise EnvironmentError("Unable to load .env file. Make sure it exists and contains the required keys.")
+        raise EnvironmentError(
+            "Unable to load .env file. Make sure it exists and contains the required keys."
+        )
 
-    DD_API_KEY = os.getenv('DD_API_KEY')
-    DD_APP_KEY = os.getenv('DD_APP_KEY')
+    DD_API_KEY = os.getenv("DD_API_KEY")
+    DD_APP_KEY = os.getenv("DD_APP_KEY")
 
     if not DD_API_KEY or not DD_APP_KEY:
         raise ValueError("Datadog API Key or App Key is missing in the .env file.")
@@ -30,6 +33,7 @@ def initialize_config():
 
     return configuration
 
+
 def parse_arguments():
     """
     Parses command-line arguments.
@@ -39,15 +43,16 @@ def parse_arguments():
         "--query",
         type=str,
         required=True,
-        help="The filter query for fetching events, e.g., 'service:trms production service check'."
+        help="The filter query for fetching events, e.g., 'service:trms production service check'.",
     )
     parser.add_argument(
         "--days",
         type=int,
         default=30,
-        help="Number of days in the past to fetch events (default: 30)."    
+        help="Number of days in the past to fetch events (default: 30).",
     )
     return parser.parse_args()
+
 
 def fetch_event_data(events_api, query, days):
     """
@@ -60,13 +65,14 @@ def fetch_event_data(events_api, query, days):
         events_response = events_api.list_events(
             filter_from=str(start_time),
             filter_to=str(end_time),
-            filter_query=query, 
-            page_limit=1000
+            filter_query=query,
+            page_limit=1000,
         )
         return events_response.data if events_response.data else []
     except Exception as e:
         handle_errors(f"Error fetching events: {e}")
         return []
+
 
 def process_event_data(events_data):
     """
@@ -85,14 +91,16 @@ def process_event_data(events_data):
 
         event_timestamp_local = event_timestamp.astimezone(target_timezone)
 
-        processed_events.append({
-            "event_id": event.id,
-            "event_type": event.type,
-            "event_tags": ", ".join(event.attributes.tags) if event.attributes.tags else "",
-            "event_timestamp_local": event_timestamp_local.strftime("%Y-%m-%d %H:%M:%S"),
-            "event_title": attributes.get("title", "No Title"),
-            "event_status": attributes.get("status", "Unknown")
-        })
+        processed_events.append(
+            {
+                "event_id": event.id,
+                "event_type": event.type,
+                "event_tags": ", ".join(event.attributes.tags) if event.attributes.tags else "",
+                "event_timestamp_local": event_timestamp_local.strftime("%Y-%m-%d %H:%M:%S"),
+                "event_title": attributes.get("title", "No Title"),
+                "event_status": attributes.get("status", "Unknown"),
+            }
+        )
 
     return processed_events
 
@@ -114,11 +122,13 @@ def save_to_csv(events_df, output_dir_path="output", output_file="output/events_
     except Exception as e:
         handle_errors(f"Error saving to CSV: {e}")
 
+
 def handle_errors(error_message):
     """
     Centralized error handling mechanism.
     """
     print(error_message)
+
 
 def main():
     """
@@ -138,6 +148,6 @@ def main():
         else:
             print("No events found.")
 
+
 if __name__ == "__main__":
     main()
-
