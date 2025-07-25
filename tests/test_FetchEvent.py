@@ -1,8 +1,8 @@
-import pytest
+import pytest # noqa: F401
 import os
-import pandas as pd
 import argparse
 from unittest.mock import patch, MagicMock
+
 from FetchEvent import (
     initialize_config,
     parse_arguments,
@@ -23,7 +23,6 @@ def test_initialize_config():
 
 
 def test_parse_arguments():
-    test_args = ["--query", "test_query", "--days", "7"]
     with patch(
         "FetchEvent.argparse.ArgumentParser.parse_args",
         return_value=argparse.Namespace(query="test_query", days=7),
@@ -41,8 +40,8 @@ def test_fetch_event_data():
 
 
 def test_process_event_data():
-    mock_event_data = [
         MagicMock(
+    mock_event_data = [
             id="1",
             type="type1",
             attributes=MagicMock(
