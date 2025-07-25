@@ -1,0 +1,25 @@
+2025-07-24T14:48:04,534 Using pip 25.1.1 from /home/erik/projects/FetchEvent/venv/lib/python3.10/site-packages/pip (python 3.10)
+2025-07-24T14:48:04,534 Non-user install because user site-packages disabled
+2025-07-24T14:48:04,620 Created temporary directory: /tmp/pip-build-tracker-_ks5s6lj
+2025-07-24T14:48:04,620 Initialized build tracking at /tmp/pip-build-tracker-_ks5s6lj
+2025-07-24T14:48:04,620 Created build tracker: /tmp/pip-build-tracker-_ks5s6lj
+2025-07-24T14:48:04,620 Entered build tracker: /tmp/pip-build-tracker-_ks5s6lj
+2025-07-24T14:48:04,620 Created temporary directory: /tmp/pip-install-6jm2kk0b
+2025-07-24T14:48:04,620 Remote version of pip: 25.1.1
+2025-07-24T14:48:04,620 Local version of pip:  25.1.1
+2025-07-24T14:48:04,620 Was pip installed by pip? True
+2025-07-24T14:48:04,621 ERROR: You must give at least one requirement to install (see "pip help install")
+2025-07-24T14:48:04,621 Exception information:
+2025-07-24T14:48:04,621 Traceback (most recent call last):
+2025-07-24T14:48:04,621   File "/home/erik/projects/FetchEvent/venv/lib/python3.10/site-packages/pip/_internal/cli/base_command.py", line 105, in _run_wrapper
+2025-07-24T14:48:04,621     status = _inner_run()
+2025-07-24T14:48:04,621   File "/home/erik/projects/FetchEvent/venv/lib/python3.10/site-packages/pip/_internal/cli/base_command.py", line 96, in _inner_run
+2025-07-24T14:48:04,621     return self.run(options, args)
+2025-07-24T14:48:04,621   File "/home/erik/projects/FetchEvent/venv/lib/python3.10/site-packages/pip/_internal/cli/req_command.py", line 68, in wrapper
+2025-07-24T14:48:04,621     return func(self, options, args)
+2025-07-24T14:48:04,621   File "/home/erik/projects/FetchEvent/venv/lib/python3.10/site-packages/pip/_internal/commands/install.py", line 351, in run
+2025-07-24T14:48:04,621     reqs = self.get_requirements(args, options, finder, session)
+2025-07-24T14:48:04,621   File "/home/erik/projects/FetchEvent/venv/lib/python3.10/site-packages/pip/_internal/cli/req_command.py", line 303, in get_requirements
+2025-07-24T14:48:04,621     raise CommandError(
+2025-07-24T14:48:04,621 pip._internal.exceptions.CommandError: You must give at least one requirement to install (see "pip help install")
+2025-07-24T14:48:04,627 Removed build tracker: '/tmp/pip-build-tracker-_ks5s6lj'

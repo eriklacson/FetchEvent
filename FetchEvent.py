@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 
 import os
-import json
 from dotenv import load_dotenv
 import pandas as pd
 import argparse
 import time
 import pytz
-from datetime import datetime
 from datadog_api_client import ApiClient, Configuration
 from datadog_api_client.v2.api.events_api import EventsApi
 
