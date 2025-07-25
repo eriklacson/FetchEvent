@@ -7,4 +7,4 @@ line-length = 100
 ignore = ["E501"]             # long lines handled by Black
 
 [tool.bandit]
-skips = ["B101"]              # adjust to taste
+skips = ["B101"]              # use of assert outside of test code

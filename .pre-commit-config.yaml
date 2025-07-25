@@ -1,0 +1,21 @@
+repos:
+  # Black – run in **check** mode so it *fails* instead of auto‑rewriting
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        args: ["--check"]       # ensure code is already formatted
+
+  # Ruff – both linter and formatter (import sorting)
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.5
+    hooks:
+      - id: ruff
+        args: ["check", "."]   # same behaviour CI uses
+
+  # Bandit – security checks
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.8.6
+    hooks:
+      - id: bandit
+        args: ["-r", "."]
